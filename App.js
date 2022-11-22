@@ -10,11 +10,8 @@ export default function App() {
   
   if (!fontsLoaded){return null;}
 
-  return (
-    <View style={styles.container}>
-      <ShopNavigator/>
-    </View>
-  );
+  return <ShopNavigator style={styles.container}/>;
+
 }
 
 const styles = StyleSheet.create({

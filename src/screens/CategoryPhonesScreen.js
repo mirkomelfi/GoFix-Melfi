@@ -15,7 +15,7 @@ export default CategoryPhonesScreen
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#ff675f',
       alignItems: 'center',
       justifyContent: 'center',
     },

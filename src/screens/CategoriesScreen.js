@@ -1,10 +1,13 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
+
 const CategoriesScreen = ({navigation}) => {
+
+
   return (
     <View style={styles.container}>
-      <Text>Categories Screen</Text>
+      <Text >Categories Screen</Text>
       <Button style={styles.buton} title="Go to Phones" onPress={()=>navigation.navigate("Phones")} />
     </View>
   )
@@ -15,7 +18,7 @@ export default CategoriesScreen
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#ff675f',
       alignItems: 'center',
       justifyContent: 'center',
     },

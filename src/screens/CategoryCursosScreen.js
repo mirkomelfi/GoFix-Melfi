@@ -4,8 +4,8 @@ import React from 'react'
 const CategoryPhonesScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>CategoryPhonesScreen</Text>
-      <Button style={styles.buton} title="Go to iPhone 13" onPress={()=>navigation.navigate("Iphone13")} />
+      <Text>CategoryCursosScreen</Text>
+      <Button style={styles.buton} title="Go to Details" onPress={()=>navigation.navigate("Details")} />
     </View>
   )
 }

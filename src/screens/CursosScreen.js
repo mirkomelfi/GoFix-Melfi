@@ -4,10 +4,9 @@ import foto1 from "../assets/iphone13.jpg"
 
 
 const Iphone13Screen = () => {
-  const fotooo=foto1;
   return (
     <View style={styles.container}>
-      <Text>Iphone13</Text>
+      <Text>Details</Text>
       <Image  style={styles.foto} source={foto1}/>
     </View>
   )

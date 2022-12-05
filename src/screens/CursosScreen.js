@@ -1,18 +1,18 @@
-import { StyleSheet, Text, View,Image } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import foto1 from "../assets/iphone13.jpg"
 
 
-const Iphone13Screen = () => {
+
+const CursosScreen = () => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Details</Text>
-      <Image  style={styles.foto} source={foto1}/>
     </View>
-  )
+   
+    )
 }
 
-export default Iphone13Screen
+export default CursosScreen
 
 const styles = StyleSheet.create({
   container: {

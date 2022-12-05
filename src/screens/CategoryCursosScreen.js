@@ -1,12 +1,28 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 import React from 'react'
+import { CURSOS } from '../data/cursos';
+import CursoItem from '../components/CursoItem';
+import { FlatList } from 'react-native';
 
-const CategoryPhonesScreen = ({navigation}) => {
+const CategoryPhonesScreen = ({navigation,route}) => {
+  const cursos=CURSOS.filter((curso)=>curso.category===route.params.categoryId);
+
+  const handlerSelectedCategory = (item)=>{
+    navigation.navigate("Details",{
+      productId:item.id,name:item.name,
+    });
+  }
+  const renderCursoItem =({item})=>(
+    <CursoItem item={item} onSelected={handlerSelectedCategory}/>
+  )
+
+
   return (
-    <View style={styles.container}>
-      <Text>CategoryCursosScreen</Text>
-      <Button style={styles.buton} title="Go to Details" onPress={()=>navigation.navigate("Details")} />
-    </View>
+    <FlatList
+        data={cursos}
+        keyExtractor={(item)=>item.id}
+        renderItem={renderCursoItem}
+        />
   )
 }
 

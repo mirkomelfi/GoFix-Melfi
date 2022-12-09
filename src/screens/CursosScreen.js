@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
+import {useSelector} from "react-redux";
 
 
 const CursosScreen = () => {
+  const curso=useSelector((state)=>state.curso.selected)
   return (
     <View>
       <Text>Details</Text>

@@ -18,7 +18,7 @@ export default BottomTabNavigator=()=> {
                 headerShown:false,
                 tabBarShowLabel:false,
                 tabBarStyle:styles.tabBar}}
-                /*no se si esta bien escrito */> 
+        > 
             <BottomTabs.Screen
                 name='ShopTab' component={ShopNavigator} options={{tabBarIcon:({focus})=>(
                     <View style={styles.item}>

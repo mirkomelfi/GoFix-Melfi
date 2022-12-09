@@ -1,15 +1,25 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 import React from 'react'
-import { CURSOS } from '../data/cursos';
 import CursoItem from '../components/CursoItem';
 import { FlatList } from 'react-native';
+import {useSelector,useDispatch,connect} from "react-redux"
+import { useEffect } from 'react';
+import { selectCurso, filteredCurso } from '../store/actions/curso.action';
 
 const CategoryPhonesScreen = ({navigation,route}) => {
-  const cursos=CURSOS.filter((curso)=>curso.category===route.params.categoryId);
+  const dispatch=useDispatch();
+  const categoryCursos=useSelector((state)=>state.cursos.filteredCursos);
+  const category=useSelector((state)=>state.categories.selected);
+
+
+  useEffect(()=>{
+    dispatch(filteredCurso(category.id))
+  },[]);
 
   const handlerSelectedCategory = (item)=>{
+    dispatch(selectCurso(item.id))
     navigation.navigate("Details",{
-      productId:item.id,name:item.name,
+        name:item.name,
     });
   }
   const renderCursoItem =({item})=>(
@@ -19,14 +29,14 @@ const CategoryPhonesScreen = ({navigation,route}) => {
 
   return (
     <FlatList
-        data={cursos}
+        data={categoryCursos}
         keyExtractor={(item)=>item.id}
         renderItem={renderCursoItem}
         />
   )
 }
 
-export default CategoryPhonesScreen
+export default connect()(CategoryPhonesScreen);
 
 const styles = StyleSheet.create({
     container: {

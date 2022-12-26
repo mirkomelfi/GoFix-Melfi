@@ -17,9 +17,12 @@ const CursoReducer = (state=initialState,action)=>{
                 selected:state.cursos.find((curso)=>curso.id===action.cursoId),
             };
         case FILTERED_CURSO:
+
+        console.log(FILTERED_CURSO, state.cursos.filter((curso)=>curso.category===action.categoryId))
+
             return {
                 ...state,
-                filteredCurso:state.cursos.filter((curso)=>curso.category===action.categoryId),
+                filteredCursos:state.cursos.filter((curso)=>curso.category===action.categoryId),
             };
         default:
             return state;

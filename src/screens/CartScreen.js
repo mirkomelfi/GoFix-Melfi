@@ -13,7 +13,7 @@ const CartScreen = () => {
         console.log("handlerDeleteItem")
     };
     const renderItem=({item})=>{
-        <CartItem item={item} onDelete={handlerDeleteItem} />
+        return <CartItem item={item} onDelete={handlerDeleteItem} />
     };
 
 

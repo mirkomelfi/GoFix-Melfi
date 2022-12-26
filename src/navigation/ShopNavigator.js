@@ -27,7 +27,7 @@ export default ShopNavigator = ({route}) =>{
                 <Stack.Screen 
                     name="Cursos" 
                     component={CategoryCursosScreen}
-                    options={({route})=>({title:route.params.name})} anda hasta q toco go y cambio de screen 
+                    options={({route})=>({title:route.params.name})} // anda hasta q toco go y cambio de screen 
                 />
                 <Stack.Screen 
                     name="Details" 

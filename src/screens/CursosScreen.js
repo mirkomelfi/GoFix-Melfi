@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 
 
 const CursosScreen = () => {
-  const curso=useSelector((state)=>state.curso.selected)
+  const curso=useSelector((state)=>state.cursos.selected)
   return (
     <View>
       <Text>Details</Text>

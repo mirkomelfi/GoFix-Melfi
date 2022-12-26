@@ -3,14 +3,21 @@ import React from 'react'
 import { CART } from '../data/cart'
 import CartItem from '../components/CartItem'
 import { TouchableOpacity } from 'react-native'
+import { useSelector } from 'react-redux'
+import { removeItem } from '../store/actions/cart.action'
+import { confirmCart } from '../store/actions/cart.action'
+import { useDispatch } from 'react-redux'
+
 
 const CartScreen = () => {
-    const total=50000;
+    const dispatch=useDispatch();
+    const items=useSelector(state=>state.cart.items)
+    const total=useSelector(state=>state.cart.total)
     const handlerConfirmCart=()=>{
         console.log("handlerConfirmCart")
     };
-    const handlerDeleteItem=()=>{
-        console.log("handlerDeleteItem")
+    const handlerDeleteItem=(id)=>{
+        dispatch(removeItem(id))
     };
     const renderItem=({item})=>{
         return <CartItem item={item} onDelete={handlerDeleteItem} />

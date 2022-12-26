@@ -1,13 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import {useSelector} from "react-redux";
+import {useSelector,useDispatch} from "react-redux";
+import { addItem } from '../store/actions/cart.action';
 
 
 const CursosScreen = () => {
-  const curso=useSelector((state)=>state.cursos.selected)
+  const dispatch=useDispatch();
+  const curso=useSelector((state)=>state.cursos.selected);
+  const handleAddItemCart=()=>{
+    dispatch(addItem(curso))
+  };
   return (
-    <View>
-      <Text>Details</Text>
+    <View style={styles.container}>
+      <View style={styles.screen}>
+        <Text style={styles.name}>{curso.name}</Text>
+        <Text style={styles.desc}>{curso.description}</Text>
+        <Text style={styles.price}>{curso.price}</Text>
+        <View style={styles.button}>
+          <Button title='Agregar al carrito' onPress={handleAddItemCart}/>
+        </View>
+      </View>
     </View>
    
     )
@@ -18,11 +30,23 @@ export default CursosScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ff675f',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding:10,
   },
-  foto:{
-    margin:20,
+  screen:{
+    flex: 0.9,
+    justifyContent:"center",
+    alignItems:"center",
+  },
+  title:{
+    fontSize:25,
+  },
+  desc:{
+    fontSize:20,
+  },
+  price:{
+    fontSize:40,
+  },
+  button:{
+    marginTop:15,
   }
 });

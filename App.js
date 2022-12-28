@@ -3,6 +3,7 @@ import { useFonts } from 'expo-font';
 import BottomTabNavigator from './src/navigation/BottomTabNavigator';
 import { Provider } from 'react-redux';
 import store from "./src/store"
+import MainNavigator from "./src/navigation"
 
 
 export default function App() {
@@ -14,7 +15,7 @@ export default function App() {
 
   return (
       <Provider store={store}>
-          <BottomTabNavigator/>
+          <MainNavigator/>
       </Provider>
     );
 

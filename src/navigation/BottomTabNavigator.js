@@ -7,12 +7,12 @@ import Ionicons from "@expo/vector-icons/Ionicons"
 import { View } from 'react-native'
 import { StyleSheet } from 'react-native'
 import { Text } from "react-native";
+import OrderNavigator from './OrderNavigator'
 
 const BottomTabs=createBottomTabNavigator();
 
 export default BottomTabNavigator=()=> {
   return (
-    <NavigationContainer>
         <BottomTabs.Navigator 
             screenOptions={{
                 headerShown:false,
@@ -40,8 +40,19 @@ export default BottomTabNavigator=()=> {
                 )}}
             
             />
+            <BottomTabs.Screen
+                name='OrdersTab' component={OrderNavigator} options={{tabBarIcon:({focus})=>(
+                    <View style={styles.item}>
+                        <Ionicons name='list' size={20} color= "black" 
+        
+                        
+                        /> 
+                        <Text>Ordenes</Text>
+                    </View>
+                )}}
+            
+            />
         </BottomTabs.Navigator>
-    </NavigationContainer>
   )
 }
 

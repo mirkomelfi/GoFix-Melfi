@@ -8,25 +8,25 @@ const initialState ={
     total:0,
 }
 const sumTotal=(list)=>{
-    list.map(item=>item.quantity*item.price).reduce((a,b)=>a+b,0)
+    list.map((item)=>item.quantity*item.price).reduce((a,b)=>a+b,0)
 }
 const CartReducer =(state=initialState,action)=>{
     switch (action.type){
         case REMOVE_ITEM:
             const cleanCart=[...state.items].filter(
-                item=>item.id!==action.itemID
+                (item)=>item.id!==action.itemID
             )
-            return {...state,items:cleanCart,total:sumTotal(cleanCart)}
+            return {...state,items:cleanCart,total:sumTotal(cleanCart)};
         case ADD_ITEM:
             const indexItem=state.items.findIndex(
                 (item)=>item.id===action.item.id
             );
             if (indexItem===-1){
-                const item={...action.item,quantity:1}
-                const updateCart=[...state.items,item]
-                return {state,items:updateCart,total:sumTotal(updateCart)};
+                const item={...action.item,quantity:1};
+                const updateCart=[...state.items,item];
+                return {...state,items:updateCart,total:sumTotal(updateCart)};
             }
-            const items=[...state.items].map(item=>{
+            const items=[...state.items].map((item)=>{
                 if (item.id===action.item.id) item.quantity++;
                 return items
             });

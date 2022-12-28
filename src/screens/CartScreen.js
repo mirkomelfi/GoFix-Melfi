@@ -1,6 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { CART } from '../data/cart'
 import CartItem from '../components/CartItem'
 import { TouchableOpacity } from 'react-native'
 import { useSelector } from 'react-redux'
@@ -14,7 +13,7 @@ const CartScreen = () => {
     const items=useSelector(state=>state.cart.items)
     const total=useSelector(state=>state.cart.total)
     const handlerConfirmCart=()=>{
-        console.log("handlerConfirmCart")
+        dispatch(confirmCart(items,total))
     };
     const handlerDeleteItem=(id)=>{
         dispatch(removeItem(id))
@@ -28,13 +27,13 @@ const CartScreen = () => {
     <View  style={styles.container}>
         <View  style={styles.list}>
             <FlatList 
-                data={CART}
+                data={items}
                 keyExtractor={item=>item.id}
                 renderItem={renderItem}
             />
         </View>
         <View  style={styles.footer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handlerConfirmCart}>
                <Text style={styles.confirm}>Confirmar</Text>
                <View style={styles.total}>
                     <Text  style={styles.text}>Total</Text>

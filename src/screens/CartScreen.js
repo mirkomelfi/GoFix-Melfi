@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { removeItem } from '../store/actions/cart.action'
 import { confirmCart } from '../store/actions/cart.action'
 import { useDispatch } from 'react-redux'
+import ImageSelector from '../components/ImageSelector'
 
 
 const CartScreen = () => {
@@ -32,6 +33,8 @@ const CartScreen = () => {
                 renderItem={renderItem}
             />
         </View>
+        <Text style={styles.text}>Ingrese foto de su mascota para registrar la orden</Text>
+        <ImageSelector onImage={(image)=>console.log(image)}/>
         <View  style={styles.footer}>
             <TouchableOpacity onPress={handlerConfirmCart}>
                <Text style={styles.confirm}>Confirmar</Text>

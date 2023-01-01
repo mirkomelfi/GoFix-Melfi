@@ -5,11 +5,13 @@ import { addItem } from '../store/actions/cart.action';
 
 
 const CursosScreen = () => {
-  const dispatch=useDispatch();
+
   const curso=useSelector((state)=>state.cursos.selected);
-  const handleAddItemCart=()=>{
-    dispatch(addItem(curso))
-  };
+
+  const dispatch=useDispatch();
+
+  const handlerAddItemCart = () => dispatch(addItem(curso));
+
   return (
     <View style={styles.container}>
       <View style={styles.screen}>
@@ -17,7 +19,7 @@ const CursosScreen = () => {
         <Text style={styles.desc}>{curso.description}</Text>
         <Text style={styles.price}>{curso.price}</Text>
         <View style={styles.button}>
-          <Button title='Agregar al carrito' onPress={handleAddItemCart}/>
+          <Button title='Agregar al carrito' onPress={handlerAddItemCart}/>
         </View>
       </View>
     </View>

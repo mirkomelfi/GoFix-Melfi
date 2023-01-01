@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Button, Image,Alert} from "react-native";
 import * as ImagePicker from "expo-image-picker"
-import * as Permissions from "expo-permissions"
+//import * as Permissions from "expo-permissions"
 import { useState } from "react";
 
 const ImageSelector=()=>{

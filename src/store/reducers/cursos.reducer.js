@@ -10,23 +10,22 @@ const initialState={
 };
 
 const CursoReducer = (state=initialState,action)=>{
-    switch(action.type){
+    switch (action.type) {
         case SELECTED_CURSO:
-            return {
-                ...state,
-                selected:state.cursos.find((curso)=>curso.id===action.cursoId),
-            };
+          return {
+            ...state,
+            selected: state.cursos.find((curso) => curso.id === action.cursoID),
+          };
         case FILTERED_CURSO:
-
-        console.log(FILTERED_CURSO, state.cursos.filter((curso)=>curso.category===action.categoryId))
-
-            return {
-                ...state,
-                filteredCursos:state.cursos.filter((curso)=>curso.category===action.categoryId),
-            };
+          return {
+            ...state,
+            filteredCurso: state.cursos.filter(
+              (curso) => curso.category === action.categoryID
+            ),
+          };
         default:
-            return state;
-    }
-}
+          return state;
+      }
+    };
 
 export default CursoReducer

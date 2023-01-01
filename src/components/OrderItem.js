@@ -1,22 +1,24 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 
-const OrderItem=({item,onDelete})=>{
-    const formatDay =(time)=>{
-      const date=new Date(time)
-      return date.toLocaleDateString();   
-    }
-    const sumTotal=(list)=>list.map((item)=>item.quantity*item.price).reduce((a,b)=>a+b,0);
-    
-    return (
-        <View>
-            <View>
-                <Text>{formatDay(item.date)} </Text>
-                <Text>${sumTotal(item.items)} </Text>
+const formatDay = (time) => {
+  const date = new Date(time);
+  return date.toLocaleDateString();
+};
 
-            </View>
+const sumTotal = (list) =>
+  list.map((item) => item.quantity * item.price).reduce((a, b) => a + b, 0);
 
-        </View>
-    )
-}
+const OrderItem = ({ item, onDelete }) => {
+  return (
+    <View>
+      <View>
+        <Text>{formatDay(item.date)}</Text>
+        <Text>$ {sumTotal(item.items)}</Text>
+      </View>
+    </View>
+  );
+};
 
-export default OrderItem
+export default OrderItem;
+

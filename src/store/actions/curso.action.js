@@ -3,10 +3,10 @@ export const FILTERED_CURSO="FILTERED_CURSO"
 
 export const selectCurso=(id)=>({
     type: SELECTED_CURSO,
-    cursoId:id,
+    cursoID:id,
 });
 
 export const filteredCurso=(id)=>({
     type: FILTERED_CURSO,
-    categoryId:id,
+    categoryID:id,
 });

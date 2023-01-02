@@ -98,8 +98,7 @@ import {
               initialValue=""
             />
   
-            <TextInput
-              style={styles.input}
+            <Input
               id="password"
               label="Clave"
               placeholder="hola"

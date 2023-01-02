@@ -10,7 +10,8 @@ export default () => {
 
   return (
     <NavigationContainer>
-      {userId ? <BottomTabNavigator /> : <AuthNavigation />}
+      {/*userId ? <BottomTabNavigator /> : <AuthNavigation />*/}
+      <BottomTabNavigator /> 
     </NavigationContainer>
   );
 };

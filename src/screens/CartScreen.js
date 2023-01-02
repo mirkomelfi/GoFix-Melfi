@@ -9,6 +9,7 @@ import {
 import CartItem from "../components/CartItem";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, confirmCart } from "../store/actions/cart.action";
+import ImageSelector from "../components/ImageSelector";
 
 const CartScreen = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ const CartScreen = () => {
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
         />
+        <View >
+          <ImageSelector onImage={(image)=>console.log(image)} />
+        </View>
       </View>
       <View style={styles.footer}>
         <TouchableOpacity style={styles.confirm} onPress={handleConfirmCart}>

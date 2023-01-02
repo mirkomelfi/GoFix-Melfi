@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   label: {
-    fontFamily: "Tillana",
+    fontFamily: "Montserrat",
     marginVertical: 8,
   },
   input: {

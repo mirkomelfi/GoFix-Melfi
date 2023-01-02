@@ -1,8 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CategoriesScreen from "../screens/CategoriesScreen";
-import CategoryBreadScreen from "../screens/CategoryBreadScreen";
-import BreadDetailsScreen from "../screens/BreadDetailsScreen";
+import CategoryCursosScreen from "../screens/CategoryCursosScreen";
+import CursosScreen from "../screens/CursosScreen";
 import { COLORS } from "../constants/colors";
 
 const Stack = createNativeStackNavigator();
@@ -28,14 +28,14 @@ export default ShopNavigator = () => {
       />
       <Stack.Screen
         name="Curso"
-        component={CategoryBreadScreen}
+        component={CategoryCursosScreen}
         options={({ route }) => ({
           title: route.params.name,
         })}
       />
       <Stack.Screen
         name="Details"
-        component={BreadDetailsScreen}
+        component={CursosScreen}
         options={({ route }) => ({
           title: route.params.name,
         })}

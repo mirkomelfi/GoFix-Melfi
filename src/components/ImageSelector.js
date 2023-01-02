@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Button, Image,Alert} from "react-native";
 import * as ImagePicker from "expo-image-picker"
 //import * as Permissions from "expo-permissions"
 import { useState } from "react";
+import { COLORS } from "../constants/colors";
 
 const ImageSelector=()=>{
     const [pickedUri,setPickedUri]=useState();
@@ -28,18 +29,44 @@ const ImageSelector=()=>{
         props.onImage(image.uri);
     };
     return (
-        <View>
-             <View>
+        <View style={styles.container} >
+             <View style={styles.containerImage}>
                 {!pickedUri?
-                (<Text>No hay imagen seleccionada</Text>)
+                (<Text style={styles.text} >Agregue una foto de su perro para asimilar la orden (OPCIONAL)</Text>)
                 :
-                (<Image source={{uri:pickedUri}}/>
+                (<Image style={styles.image} source={{uri:pickedUri}}/>
                 )}
             </View>
             <Button title="Tomar foto" onPress={handlerTakeImage}/>
         </View>
     )
-
-
 }
+
+const styles = StyleSheet.create({
+    container:{
+        marginBottom:20
+    },
+    containerImage:{
+        width:"100%",
+        height:200,
+        marginBottom:10,
+        justifyContent:"center",
+        alignItems:"center",
+        borderColor:COLORS.primary,
+        borderWidth:1,
+    },
+    image:{
+        width:"100%",
+        height:"100%",
+    },
+    text:{
+        color: "red",
+        textAlign:"center",
+        fontFamily:"Montserrat"
+
+    },
+
+})
+
+
 export default ImageSelector

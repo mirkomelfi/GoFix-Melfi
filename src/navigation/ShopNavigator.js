@@ -23,7 +23,7 @@ export default ShopNavigator = () => {
         name="Categories"
         component={CategoriesScreen}
         options={{
-          title: "Mi Panaderia",
+          title: "Adiestramiento Canino Jirok",
         }}
       />
       <Stack.Screen

@@ -32,7 +32,7 @@ const ImageSelector=()=>{
         <View style={styles.container} >
              <View style={styles.containerImage}>
                 {!pickedUri?
-                (<Text style={styles.text} >Agregue una foto de su perro para asimilar la orden (OPCIONAL)</Text>)
+                (<Text style={styles.text} >Agregue una foto de su perro para obtener un descuento en la próxima compra (OPCIONAL)</Text>)
                 :
                 (<Image style={styles.image} source={{uri:pickedUri}}/>
                 )}

@@ -3,7 +3,7 @@ import { StyleSheet, FlatList, View } from "react-native";
 import { useSelector, connect, useDispatch } from "react-redux";
 import { getOrders } from "../store/actions/order.action";
 import OrderItem from "../components/OrderItem";
-import ImageSelector from "../components/ImageSelector";
+
 
 const OrdersScreen = () => {
   const dispatch = useDispatch();

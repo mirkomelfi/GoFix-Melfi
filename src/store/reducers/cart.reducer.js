@@ -1,6 +1,7 @@
 import { ADD_ITEM } from "../actions/cart.action";
 import { REMOVE_ITEM } from "../actions/cart.action";
 import { CONFIRM_CART } from "../actions/cart.action";
+import { LOAD_ITEM } from "../actions/cart.action";
 
 const initialState = {
     items: [],
@@ -33,6 +34,8 @@ const initialState = {
           return item;
         });
         return { ...state, items, total: sumTotal(items) };
+      case LOAD_ITEM:
+        return { ...state, items:action.items };  
       case CONFIRM_CART:
         return { ...state, items: [], total: 0 };
       default:

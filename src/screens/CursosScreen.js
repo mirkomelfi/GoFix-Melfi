@@ -12,6 +12,19 @@ const CursosScreen = () => {
 
   const handlerAddItemCart = () => dispatch(addItem(curso));
 
+/* con el editItem
+  const handlerAddItemCart = () => {
+    const indexItem = state.items.findIndex(
+      (item) => item.id === action.item.id
+    );
+    if (indexItem === -1) {
+      dispatch(addItem(curso))
+    }
+    dispatch(editItem(curso));
+  }
+*/
+
+
   return (
     <View style={styles.container}>
       <View style={styles.screen}>

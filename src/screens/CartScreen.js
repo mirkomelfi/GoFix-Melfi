@@ -18,8 +18,8 @@ const CartScreen = () => {
   const total = useSelector((state) => state.cart.total);
 
   useEffect(() =>{
-    dispatch(loadProduct())
-  },[items])
+    dispatch(loadProduct());
+  },[])
 
   const handleConfirmCart = () => {
     dispatch(confirmCart(items, total));

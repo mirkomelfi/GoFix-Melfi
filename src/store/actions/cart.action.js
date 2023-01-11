@@ -1,5 +1,5 @@
 import { URL_API } from "../../constants/database";
-import { insertProduct,fetchProduct,deleteProducts,deleteProduct } from "../../db";
+import { insertProduct,fetchProduct,deleteProducts,deleteProduct,editProduct } from "../../db";
 
 export const ADD_ITEM = "ADD_ITEM";
 export const LOAD_ITEM = "LOAD_ITEM";
@@ -10,33 +10,41 @@ export const CONFIRM_CART = "CONFIRM_CART";
 export const addItem = (item) => {    
   return async (dispatch) => {
     try {
-      const result = await insertProduct(item.id,item.category,item.name,item.description,item.price); 
+      const result = await insertProduct(item.id,item.category,item.name,item.description,item.price,1); 
       console.log(result);
       dispatch({
         type:ADD_ITEM,
         item, 
       });
     } catch (err) {
-      console.log("hola",err);
+      console.log("add",err);
     }
   };
 };
-/*
+
 export const editItem = (item) => {    
   return async (dispatch) => {
     try {
-      const result = await insertProduct(item.id,item.category,item.name,item.description,item.price); 
+      console.log(item)
+      console.log(item.id)
+      console.log(item.category)
+      console.log(item.name)
+      console.log(item.description)
+      console.log(item.price)
+      console.log(item.quantity)
+
+      const result = await editProduct(item.id,item.category,item.name,item.description,item.price,item.quantity); 
       console.log(result);
       dispatch({
         type:EDIT_ITEM,
         item, 
       });
     } catch (err) {
-      console.log("hola",err);
+      console.log("edit",err);
     }
   };
 };
-*/
+
 
 export const loadProduct = () => {
   return async (dispatch) => {
@@ -64,7 +72,7 @@ export const removeItem = (itemID) => {
         itemID, 
       });
     } catch (err) {
-      console.log("hola",err);
+      console.log("remove",err);
     }
   };
 };

@@ -1,28 +1,30 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import {useSelector,useDispatch} from "react-redux";
-import { addItem } from '../store/actions/cart.action';
+import { addItem,editItem } from '../store/actions/cart.action';
 
 
 const CursosScreen = () => {
-
+  const items = useSelector((state) => state.cart.items);
   const curso=useSelector((state)=>state.cursos.selected);
 
   const dispatch=useDispatch();
 
-  const handlerAddItemCart = () => dispatch(addItem(curso));
+  /*const handlerAddItemCart = () => dispatch(addItem(curso)); //asi era sin el editItem
 
-/* con el editItem
+/* con el editItem*/
   const handlerAddItemCart = () => {
-    const indexItem = state.items.findIndex(
-      (item) => item.id === action.item.id
+    const indexItem = items.findIndex(
+      (item) => item.id === curso.id 
     );
+
     if (indexItem === -1) {
-      dispatch(addItem(curso))
+      dispatch(addItem(curso)) //OK
+    }else{
+      dispatch(editItem(curso));//error: no such column
     }
-    dispatch(editItem(curso));
   }
-*/
+
 
 
   return (

@@ -26,8 +26,6 @@ const CursosScreen = () => {
     }
   }
 
-
-
   return (
     <View style={styles.container}>
       <View style={styles.screen}>
@@ -39,7 +37,6 @@ const CursosScreen = () => {
         </View>
       </View>
     </View>
-   
     )
 }
 

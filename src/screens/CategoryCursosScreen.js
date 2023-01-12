@@ -21,10 +21,6 @@ const CategoryCursoScreen = ({ navigation, route }) => {
       name: item.name,
     });
   };
-  
-  /* const cursos = CURSOS.filter(
-    (curso) => curso.category === route.params.categoryID
-  ); */
 
   const renderCursoItem = ({ item }) => (
     <CursoItem item={item} onSelected={handleSelectedCategory} />

@@ -4,7 +4,6 @@ import GridItem from "../components/GridItem";
 
 import { useSelector, useDispatch, connect } from "react-redux";
 import { selectedCategory } from "../store/actions/category.action";
-import LocationSelector from "../components/LocationSelector";
 
 const CategoriesScreen = ({ navigation }) => {
   const categories = useSelector((state) => state.categories.categories);
@@ -22,14 +21,12 @@ const CategoriesScreen = ({ navigation }) => {
   );
 
   return (
-    //<View>
     <FlatList
       data={categories}
       keyExtractor={(item) => item.id}
       renderItem={renderGridItem}
       numColumns={2}
     />
-    //<LocationSelector/></View>
   );
 };
 

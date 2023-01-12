@@ -22,31 +22,10 @@ const initialState = {
           (item) => item.id !== action.itemID
         );
         return { ...state, items: cleanCart, total: sumTotal(cleanCart) };
-    /*case ADD_ITEM:
-      const indexItem = state.items.findIndex(
-        (item) => item.id === action.item.id
-      );
-      if (indexItem === -1) {
-        const item = { ...action.item, quantity: 1 };
-        const updateCart = [...state.items, item];
-        console.log(updateCart);
-        return { ...state, items: updateCart, total: sumTotal(updateCart) };
-      }
-      const items = [...state.items].map((item) => {
-        if (item.id === action.item.id) item.quantity++;
-
-        return item;
-      });
-      return { ...state, items, total: sumTotal(items) }; 
-      asi era sin el EDIT ITEM. funcionaba todo ok pero al recargar la app, no me renderizaba con la cantidad correcta. 
-      es decir un producto con 3 unidades, me aparecia como si fueran 3 distintos de solo 1 unidada
-      */
       case ADD_ITEM:
         const item = { ...action.item, quantity: 1 };
         const updateCart = [...state.items, item];
-        console.log(updateCart);
-        return { ...state, items: updateCart, total: sumTotal(updateCart) };
-          
+        return { ...state, items: updateCart, total: sumTotal(updateCart) };  
       case EDIT_ITEM: 
         const items = [...state.items].map((item) => {
           if (item.id === action.item.id) item.quantity++;

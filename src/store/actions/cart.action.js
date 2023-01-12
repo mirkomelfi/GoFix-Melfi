@@ -11,7 +11,7 @@ export const addItem = (item) => {
   return async (dispatch) => {
     try {
       const result = await insertProduct(item.id,item.category,item.name,item.description,item.price,1); 
-      console.log(result);
+      console.log("addItem",result);
       dispatch({
         type:ADD_ITEM,
         item, 
@@ -22,19 +22,11 @@ export const addItem = (item) => {
   };
 };
 
-export const editItem = (item) => {    
+export const editItem = (item, quantity) => {    
   return async (dispatch) => {
     try {
-      console.log(item)
-      console.log(item.id)
-      console.log(item.category)
-      console.log(item.name)
-      console.log(item.description)
-      console.log(item.price)
-      console.log(item.quantity)
-
-      const result = await editProduct(item.id,item.category,item.name,item.description,item.price,item.quantity); 
-      console.log(result);
+      const result = await editProduct(item.id,quantity); 
+      console.log("editItem",result);
       dispatch({
         type:EDIT_ITEM,
         item, 
@@ -50,7 +42,7 @@ export const loadProduct = () => {
   return async (dispatch) => {
     try {
       const result = await fetchProduct();
-      console.log(result)
+      console.log("load",result)
       dispatch({
         type:LOAD_ITEM,
         items:result.rows._array, 
@@ -66,7 +58,7 @@ export const removeItem = (itemID) => {
   return async (dispatch) => {
     try {
       const result = await deleteProduct(itemID); 
-      console.log(result);
+      console.log("remove",result);
       dispatch({
         type:REMOVE_ITEM,
         itemID, 
@@ -89,7 +81,7 @@ export const confirmCart = (payload, user) => {
       });
 
       const result = await response.json();
-      console.log(result);
+      console.log("confirm",result);
       dispatch({
         type: CONFIRM_CART,
         confirm: true,

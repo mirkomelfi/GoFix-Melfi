@@ -13,13 +13,18 @@ import ImageSelector from "../components/ImageSelector";
 import { loadProduct } from "../store/actions/cart.action";
 
 const CartScreen = () => {
+
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.cart.items);
-  const total = useSelector((state) => state.cart.total);
 
   useEffect(() =>{
     dispatch(loadProduct());
   },[])
+
+  const items = useSelector((state) => state.cart.items);
+  let total = useSelector((state) => state.cart.total);
+
+  const sumTotal = (list) => list.map((item) => item.quantity * item.price).reduce((a, b) => a + b, 0)
+  total=(sumTotal(items))
 
   const handleConfirmCart = () => {
     dispatch(confirmCart(items, total));

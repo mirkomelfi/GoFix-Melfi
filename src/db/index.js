@@ -33,12 +33,12 @@ export const insertProduct=(id,category,name,description,price,quantity)=> {
     return promise;
 };
 
-export const editProduct=(id,category,name,description,price,quantity)=> {
+export const editProduct=(id,quantity)=> {
     const promise = new Promise ((resolve,reject)=> {
         db.transaction((tx)=> {
             tx.executeSql(
-                `UPDATE carritoPrueba SET quantity=? where id=?;`, // debo agregar la clausula where?
-                [quantity,id], // asi? o solo quantity
+                `UPDATE carritoPrueba SET quantity=? where id=?;`, 
+                [quantity,id], 
                 (_,result)=>resolve(),
                 (_,err)=>reject(err)
             );

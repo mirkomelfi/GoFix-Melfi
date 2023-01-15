@@ -27,7 +27,10 @@ const CartScreen = () => {
   total=(sumTotal(items))
 
   const handleConfirmCart = () => {
-    dispatch(confirmCart(items, total));
+    if (total!==0){
+      dispatch(confirmCart(items, total));
+    }
+    
   };
 
   const handleDeleteItem = (id) => {

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "GoFix",
-    "slug": "GoFix",
+    "slug": "gofix",
     "version": "1.0.0",
     "platforms": [
       "ios",

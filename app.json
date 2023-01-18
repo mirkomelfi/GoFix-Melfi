@@ -11,7 +11,7 @@
     "icon": "./assets/corazon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/cargando.jpg",
+      "image": "./assets/splash2.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
